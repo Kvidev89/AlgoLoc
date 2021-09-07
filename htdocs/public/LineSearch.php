@@ -19,17 +19,17 @@ $arr = [
 ];
 
 $itemRaw = filter_input(INPUT_POST, 'fname');
-$item = (int)$itemRaw;
+$item = (int) $itemRaw;
 $found = lineSearch($item, $arr);
 $count = count($arr);
 if (null !== $found) {
     $res = 'знайдено';
 } else {
     $res = 'не знайдено';
-} 
+}
 
 echo '';
-$message = 'значення '.$item.' '.$res. ' із '.$count. ' значень';
+$message = 'значення ' . $item . ' ' . $res . ' із ' . $count . ' значень';
 
 $mes = implode('; ', $arr);
 $mes2 = '';
@@ -43,36 +43,37 @@ foreach ($arr as $key => $value) {
     } else {
         $value = -1;
     }
-    
-    
-    $mes2 .= $value.'; ';
+
+
+    $mes2 .= $value . '; ';
 }
 
-$arm3 =[];
-for($i=0; $i<100; $i++) {
-    $arm3[$i] = rand (1, 957);
+$arm3 = [];
+for ($i = 0; $i < 100; $i++) {
+    $arm3[$i] = rand(1, 957);
 }
-print_r($arm3);
+//print_r($arm3);
 
-$rezarm = '';
+$rezarm = [];
+$zez = [7, 9, 11, 15, 17];
 foreach ($arm3 as $value) {
-    if ($value>=150 && $value<=157) {
-    $rezarm .= $value.'; ' ;
-    }
-   elseif ($value>=720 && $value<=723){
-   $rezarm .= $value.'; ' ;
+    if ($value >= 150 && $value <= 157) {
+        $rezarm[] = $value;
+    } else if ($value >= 720 && $value <= 723) {
+        $rezarm[] = $value;
+    } else if (in_array($value, $zez)) {
+        $rezarm[] = $value;  
     } 
-//    else {
-//       $rezarm .= 'число 💩 '.$value.' не знайдено в диапазонах! ' ;
-//    }    
 }
-if (empty($rezarm)){
-    $rezarm = '$rezarm не знайдено нічогісьоньки!' ;
-}
-echo $rezarm;
 
-    
-    
+$rezarmCount = count($rezarm);
+if (0 === $rezarmCount) {
+    $message = 'не знайдено нічогісьоньки!';
+} else {
+    $message = 'Знайдено: '.$rezarmCount. '. Значення: '.join('; ', $rezarm);
+}
+echo $message;
+
 
 
 echo '<!DOCTYPE html>
@@ -96,12 +97,12 @@ echo '<!DOCTYPE html>
             <label for="fname">Знайти:<span>*</span></label>
             <input id="fname" type="text" name="fname" value="" />
           </div>
-          <div>Знайдено, '.$message.'
+          <div>Знайдено, ' . $message . '
           </div>
         <div class="btn-block">
           <button name="submit" value="submit">Відправити</button>
-        <div>'.$mes.'</div>
-        <div>'.$mes2.'</div>
+        <div>' . $mes . '</div>
+        <div>' . $mes2 . '</div>
         </div>
         
       </fieldset>
@@ -113,8 +114,6 @@ echo '<!DOCTYPE html>
 
 ';
 
-
-
 function lineSearch(int $item, array $arr): ?int {
     $res = null;
 
@@ -125,5 +124,5 @@ function lineSearch(int $item, array $arr): ?int {
         }
     }
 
-   return $res;
+    return $res;
 }
