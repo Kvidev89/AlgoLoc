@@ -39,12 +39,19 @@
 //}
 //echo 'Елементів в масиві: '.count($mes);
 
+//$privet = ['Привет, ', 'мир' , '!'];
+//foreach ($privet as $value){
+////    echo $value.' ';
+//if ($value === 'Привет, ')   {
+//    $value === 'Пока ,'; 
+//}    
+//} echo  $value. ' ';
+//
+//
+//echo $value.' ';
+//
 $privet = ['Привет, ', 'мир' , '!'];
-foreach ($privet as $value){
-//    echo $value.' ';
-     $privet[0] = 'Пока, ';
-   
-} echo  $value. ' ';
-
+$privet[0] = 'Пока, ';
+echo implode(' ', $privet);
 
 
