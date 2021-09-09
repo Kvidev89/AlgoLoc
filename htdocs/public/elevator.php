@@ -50,8 +50,33 @@
 //
 //echo $value.' ';
 //
-$privet = ['Привет, ', 'мир' , '!'];
-$privet[0] = 'Пока, ';
-echo implode(' ', $privet);
+//
+//
 
-
+//$roket = [];
+//$value = rand(23, 79);
+//for ($key=1; $key<=10; $key++) 
+////$roket[$key] = $value; }
+// foreach ($roket as $key=>$value){
+//     $roket[$key] = $value; {
+//     if ($key === 5){
+//      $value = 523; }
+//} $roket[$key] = $value; }
+// print_r($roket) ;
+// 
+ 
+$roket = [];
+$value = '';
+for ($key=1; $key<=10; $key++) {
+     $value = rand(23, 79);
+     {
+} if ($key === 5){
+    $value = 523;
+}
+$roket[$key] = $value; }
+ print_r($roket) ;
+//
+//Створи массив на 10 випадкових значень в діапазоні від 23 до 79. 5-те значення массиву зміни на 523
+//
+//Илья Абавенков Вело, [09.09.21 23:31]
+//Залий це на Гітхаб і поклич мене
